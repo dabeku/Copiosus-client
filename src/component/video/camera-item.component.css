@@ -1,0 +1,11 @@
+.camera-item-temp-avg {
+    color: orange;
+}
+
+.camera-item-temp-high {
+    color: red;
+}
+
+.camera-item-temp-low {
+    color: green;
+}

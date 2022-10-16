@@ -1,0 +1,52 @@
+{
+  "name": "copiosus-client",
+  "productName": "Copiosus-client",
+  "version": "1.0.0",
+  "description": "A client for Copiosus-camera",
+  "main": "public/electron.js",
+  "homepage": "./",
+  "keywords": [
+    "camera"
+  ],
+  "copyright": "verbosus.com",
+  "author": "verbosus.com",
+  "license": "MIT",
+  "scripts": {
+    "react-start": "react-scripts start",
+    "electron-dev-mac": "ELECTRON_START_URL=http://localhost:3000 electron .",
+    "electron-dev-win": "set ELECTRON_START_URL=http://localhost:3000 && electron .",
+    "react-build-mac": "react-scripts build && sh ./mac-copy.sh",
+    "react-build-win": "react-scripts build && win-copy.bat",
+    "dist": "electron-builder",
+    "release": "bash scripts/sign_store.sh"
+  },
+  "devDependencies": {
+    "electron": "21.1.0",
+    "electron-rebuild": "3.2.9",
+    "react-scripts": "5.0.1",
+    "node-abi": "3.26.0"
+  },
+  "build": {},
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "6.2.0",
+    "bootstrap": "5.2.2",
+    "ip": "1.1.8",
+    "redux": "4.2.0",
+    "redux-logger": "3.0.6",
+    "react": "18.2.0",
+    "react-redux": "8.0.4",
+    "react-bootstrap": "2.5.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

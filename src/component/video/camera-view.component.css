@@ -1,0 +1,22 @@
+.camera-view-code {
+    font-family: monospace;
+    background: lightgray;
+    padding: 2px;
+    border-radius: 2px;
+}
+
+.camera-view-ol {
+    padding-top: 16px;
+}
+
+.camera-view-li {
+    padding-bottom: 4px;
+}
+
+.camera-view-error {
+    border: 3px solid red;
+}
+
+.camera-view-ok {
+    border: 0px;
+}

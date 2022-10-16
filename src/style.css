@@ -1,0 +1,689 @@
+:root {
+    /* Common */
+    --bg-color-light: #FFFFFF;
+    --text-color-light: #303030;
+
+    --success: #A1FFA1;
+    --success-light: #C3FFC3;
+    --success-on-light-bg: #006400;
+    --paranoid: #ADD8E6;
+
+    /* Navbar */
+    --shadow-color-dark: #31313190;
+    --nav-bg-color: #313131;
+    --nav-text-color: #FFFFFF;
+    --nav-btn-color: #AAAAAA;
+
+    /* Left pane */
+    --shadow-color-light: #31313190;
+
+    /* Button and active list item */
+    --bg-selected-light: #EAEAEA;
+    /* List item and left pane */
+    --separator-light: #EBEBEB;
+    /* Input fields border */
+    --separator-normal: #A4A4A4;
+
+    /* Color when mouse moves over btn-icon */
+    --btn-icon-hover: #4A4A4A;
+}
+
+body {
+    color: var(--text-color-light);
+    font-size: 13px;
+    overflow-x: hidden;
+}
+
+/* Bootstrap overrides */
+
+.navbar {
+    z-index: 10000;
+    height: 50px;
+    background: #186558;
+    color: var(--nav-text-color);
+    box-shadow: 0 1px 4px 0 var(--shadow-color-dark);
+    padding: 4px;
+}
+
+.navbar-brand {
+    padding: 0px;
+}
+
+.navbar-btn {
+    background-color: transparent;
+    border: 0px;
+    border-radius: 2px;
+    font-size: 20px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.navbar-btn:hover {
+    background: #AAAAAA;
+    color: #000000;
+    border-radius: 2px;
+}
+
+.popover {
+    border-radius: 2px;
+}
+
+.btn {
+    background-color: #186558;
+    color: #FFFFFF;
+    border-radius: 2px;
+    font-size: 20px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 13px;
+    
+}
+
+.btn-text {
+    min-width: 6.0px;
+}
+
+.btn:hover {
+    background-color: #388578;
+    /*background: #3bb364;*/
+    color: #FFFFFF;
+    border: 1px solid #388578;
+    border-radius: 2px;
+}
+
+.form-control {
+    border: 1px solid var(--separator-normal);
+    border-radius: 2px;
+    padding: 4px;
+    font-size: 13px;
+    height: 29px;
+}
+
+.list-item {
+    border: 0px;
+    border-bottom: 1px solid var(--separator-light);
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.list-item-dialog {
+    border: 0px;
+    border-bottom: 1px solid var(--separator-light);
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.list-item.active {
+    background-color: var(--bg-selected-light);
+}
+
+.list-item-name {
+    padding-top: 2px;
+    width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    float:left;
+}
+
+.list-group-item {
+    border-color: var(--separator-normal);
+    padding: 4px;
+}
+
+.list-group-item+.list-group-item {
+    border-top-width: 1px;
+    margin-top: -1px;
+}
+
+.modal {
+    z-index: 10500;
+}
+
+.modal-body {
+    padding: 8px;
+}
+
+.modal-footer {
+    padding: 4px;
+    border-top: 0px;
+}
+
+.popover {
+    font-size: 11px;
+    z-index: 100000;
+}
+
+.popover-header {
+    padding: 8px;
+}
+
+.popover-body {
+    padding: 8px;
+}
+
+.popover-footer {
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-bottom: 8px;
+}
+
+/* General */
+
+.marge-top-small {
+    margin-top: 4px;
+}
+
+.marge-top-medium {
+    margin-top: 8px;
+}
+
+.marge-top-large {
+    margin-top: 16px;
+}
+
+.marge-top-max {
+    margin-top: 32px;
+}
+
+.marge-right-small {
+    margin-right: 4px;
+}
+
+.marge-right-medium {
+    margin-right: 8px;
+}
+
+.marge-right-large {
+    margin-right: 16px;
+}
+
+.marge-bottom-small {
+    margin-bottom: 4px;
+}
+
+.pad-right {
+    padding-right: 4px;
+}
+
+.pad-right-medium {
+    padding-right: 8px;
+}
+
+.pad-top-small {
+    padding-top: 4px;
+}
+
+.pad-top-medium {
+    padding-top: 8px;
+}
+
+.marge-bottom {
+    margin-bottom: 4px;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 999px;
+    text-align: right;
+    filter: alpha(opacity = 0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+.btn-icon {
+    font-size: 20px;
+}
+.btn-icon:hover {
+    color: var(--btn-icon-hover);
+}
+
+.item-hide {
+    display: none;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.flex-justify-center {
+    justify-content: center;
+}
+
+.flex-space-between {
+    justify-content: space-between;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-center {
+    align-items: center;
+}
+
+.flex-child {
+    align-self: center;
+}
+
+.flex-grow {
+    flex: 1 0 auto;
+}
+
+.flex-stay {
+    flex: 0 0 auto;
+}
+
+.flex-shrink {
+    flex:0 1 auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.float-right {
+    float: right;
+}
+
+/* Styles from teamplates.js */
+
+.state-inactive {
+    font-style: italic;
+}
+
+.tvPartner {
+    color: #888888;
+}
+.tvMessage {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    word-break: break-word;
+}
+.tvTimestamp {
+    color: #888888;
+    text-align: right;
+}
+.imgState {
+    padding-left: 10px;
+    font-size: 16px !important; /* Important needed to override fa */
+}
+.imgPreview {
+    max-height: 250px;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+    border-radius: 2px;
+}
+.cntMessageIncoming {
+    margin-left: 16px;
+}
+.cntMessageOutgoing {
+    margin-right: 16px;    
+}
+.type-normal {
+    background-color: white;
+}
+.type-paranoid {
+    background-color: var(--paranoid);
+}
+.type-secure {
+    background-color: var(--success);
+}
+.type-secure-outgoing {
+    background-color: var(--success-light);
+}
+
+.cntDownload {
+    text-align: center;
+}
+.imgDownload {
+    font-size: 20px;
+    padding-top: 4px;
+}
+
+/* General */
+
+.full-height {
+    height: 100%;
+}
+
+.inline {
+    display: inline;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.status-online {
+    color: var(--success);
+    font-weight: bold;
+}
+
+.status-offline {
+    color: #ffa500;
+    font-weight: bold;
+}
+
+.error {
+    background-color: #ffa500;
+    border: 1px solid transparent;
+    border-color: #000000;
+    border-radius: 2px;
+    padding: 4px;
+    text-align: center;
+}
+
+.error-visible { /* Temaplate */
+    background-color: #ffa500;
+    border: 1px solid transparent;
+    border-color: #000000;
+    border-radius: 2px;
+    padding: 4px;
+    text-align: center;
+}
+
+.success {
+    display: none;
+    background-color: var(--success);
+    border: 1px solid transparent;
+    border-color: #000000;
+    border-radius: 2px;
+    padding: 4px;
+    text-align: center;
+}
+
+.notification {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 36px;
+    max-width: 400px;
+    z-index: 10600;
+}
+
+.notification-sca-container {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    z-index: 10500;
+
+    background-color: #aaaaaaaa
+}
+
+.notification-sca {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 136px;
+    max-width: 400px;
+    z-index: 10600;
+
+    background-color: var(--bg-color-light);
+    border: 1px solid transparent;
+    border-color: var(--separator-normal);
+    border-radius: 2px;
+    padding: 8px;
+    text-align: center;
+}
+
+.notification-sca-code {
+    font-weight: bold;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+/* Message type: Normal, paranoid */
+
+.cntSend {
+    position: absolute;
+    left: 0px;
+    right: 4px;
+    bottom: 4px;
+}
+
+.cntMessageType {
+    position: absolute;
+    right: 0px;
+    bottom: 37px;
+    left: 4px;
+    height: 29px;
+}
+
+.lblMessageType {
+    width: 80px;
+    justify-content: left !important;
+    padding-top: 4px;
+}
+
+.radMessageType {
+    margin-right: 5px;
+}
+
+.cntInstanceId {
+    position: absolute;
+    right: 4px;
+    top: 0px;
+    left: 200px;
+    display: none;
+}
+
+.selInstances {
+    width: 100% !important;
+}
+
+.messageStateDownloaded {
+    font-weight: bold;
+    color: green;
+}
+
+.cntLoadMore {
+    text-align: center;
+    padding-bottom: 4px;
+}
+
+.cntUnreadMessagesCount {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    font-weight: bold;
+    color: var(--success-on-light-bg);
+    background: var(--bg-selected-light);
+    border-radius: 2px;
+}
+
+/* Structure */
+
+.left {
+    position: absolute;
+    overflow: auto;
+    left: 0px;
+    width: 280px;
+    top: 50px;
+    bottom: 0px;
+    padding-top: 8px;
+    background: var(--bg-color-light);
+    border-right: 1px solid var(--separator-light);
+    box-shadow: 1px 0 4px 0 var(--shadow-color-light);
+}
+
+.leftInner {
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+}
+
+.cntUsers {
+    padding-top: 4px;
+}
+
+.txtUserSettings {
+    font-size: 11px;
+    padding-right: 8px;
+}
+
+.right {
+    position: absolute;
+    overflow: auto;
+    right: 0px;
+    left: 296px;
+    top: 50px;
+    bottom: 58px;
+    padding-top: 8px;
+    background: var(--bg-color-light);
+}
+
+.rightInner {
+    padding-right:4px;
+}
+
+.bottom {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    left: 296px;
+    background: var(--bg-color-light);
+}
+
+.bottomInner {
+    position: relative;
+    height: 100%;
+    padding-right: 4px;
+}
+
+.panel-settings {
+    position: absolute;
+    top: -290px; /* Height + navbar height = 50px */
+    right: 0px;
+    width: 350px;
+    z-index: 9000;
+    padding: 4px;
+    background: #186558;
+    color: #FFFFFF;
+    box-shadow: 0 1px 4px 0 var(--shadow-color-dark);
+}
+
+.video-settings {
+    position: absolute;
+    right: 0px;
+    z-index: 9000;
+    padding: 4px;
+    background: var(--nav-bg-color);
+    color: var(--nav-text-color);
+    box-shadow: 0 1px 4px 0 var(--shadow-color-dark);
+    opacity: 0.5;
+}
+
+/* Styles go here */
+
+.rotate {
+    transform: rotate(0deg);
+    transition: transform 0.25s linear;
+}
+
+.reverse {
+    transform: rotate(180deg);
+    transition: transform 0.25s linear;
+}
+
+@media (max-width: 575px) {
+    .form-control {
+        margin-bottom: 10px;
+    }
+}
+
+.canvasMain { 
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.videoMain {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    top: 0px;
+}
+
+.rotate180 {
+    transform: rotate(180deg);
+}
+
+.right-video {
+    position: absolute;
+    overflow: hidden;
+    right: 0px;
+    left: 296px;
+    top: 50px;
+    bottom: 40px;
+}
+
+.right-video-howto {
+    position: absolute;
+    overflow: hidden;
+    right: 16px;
+    left: 296px;
+    top: 50px;
+    bottom: 16px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cntVideoState {
+    color: #aaaaaa;
+}
+
+.listItemActionOne {
+    position: absolute;
+    right: 8px;
+    font-size: 16px;
+}
+
+.listItemActionTwo {
+    position: absolute;
+    right: 44px;
+    font-size: 16px;
+}
+
+.link {
+    cursor: pointer;
+    color: lightblue;
+    text-decoration: none;
+}
+.link:hover {
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+}

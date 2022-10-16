@@ -1,0 +1,20 @@
+.file-list-spinner {
+    font-size: 24px;
+    position: relative;
+    left: 50%;
+}
+
+.file-list-button {
+    position: absolute;
+    right: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.file-list-message {
+    text-align: center;
+}
+
+.file-list-item {
+    font-family: monospace;
+}
