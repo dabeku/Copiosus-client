@@ -2,9 +2,6 @@ import React from "react";
 
 import { connect } from 'react-redux'
 
-import {
-    setIsCameraAvailable } from '../redux/actions'
-
 import Video from "./video/video.component";
 
 import Log from "../common/log";
@@ -118,7 +115,6 @@ class App extends React.Component {
         this.waitForVideo()
         .then(() => {
             if (window.video) {
-                this.props.setIsCameraAvailable(true);
                 this.setState({ isVideoAvaiable: true });
             }
             this.log.info("[componentDidMount] Wait for dgram.");

@@ -161,7 +161,7 @@ function createWindow () {
          */
 
         // TODO: Fix path
-        var video = `window.video = require('/Users/dabeku/Documents/dev/node_video/build/Release/video.node')`;
+        var video = `window.video = require('/Users/dabeku/Documents/dev/electron_copiosus-client/build/Release/video.node')`;
         if (process.platform !== 'darwin') {
             video = "window.video = require('C:\\\\Dev\\\\node_video\\\\build\\\\Release\\\\video')";
         }
