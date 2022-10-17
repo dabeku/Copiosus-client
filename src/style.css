@@ -36,36 +36,6 @@ body {
 
 /* Bootstrap overrides */
 
-.navbar {
-    z-index: 10000;
-    height: 50px;
-    background: #186558;
-    color: var(--nav-text-color);
-    box-shadow: 0 1px 4px 0 var(--shadow-color-dark);
-    padding: 4px;
-}
-
-.navbar-brand {
-    padding: 0px;
-}
-
-.navbar-btn {
-    background-color: transparent;
-    border: 0px;
-    border-radius: 2px;
-    font-size: 20px;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    padding-left: 12px;
-    padding-right: 12px;
-}
-
-.navbar-btn:hover {
-    background: #AAAAAA;
-    color: #000000;
-    border-radius: 2px;
-}
-
 .popover {
     border-radius: 2px;
 }
@@ -528,12 +498,12 @@ body {
     overflow: auto;
     left: 0px;
     width: 280px;
-    top: 50px;
+    top: 0px;
     bottom: 0px;
     padding-top: 8px;
     background: var(--bg-color-light);
     border-right: 1px solid var(--separator-light);
-    box-shadow: 1px 0 4px 0 var(--shadow-color-light);
+    box-shadow: 0 0 4px 0 var(--shadow-color-light);
 }
 
 .leftInner {
@@ -615,11 +585,11 @@ body {
     transition: transform 0.25s linear;
 }
 
-@media (max-width: 575px) {
+/*@media (max-width: 575px) {
     .form-control {
         margin-bottom: 10px;
     }
-}
+}*/
 
 .canvasMain { 
     position: relative;
@@ -641,7 +611,7 @@ body {
 
 .right-video {
     position: absolute;
-    overflow: hidden;
+    overflow: auto;
     right: 0px;
     left: 296px;
     top: 50px;
@@ -650,7 +620,7 @@ body {
 
 .right-video-howto {
     position: absolute;
-    overflow: hidden;
+    overflow: auto;
     right: 16px;
     left: 296px;
     top: 50px;
