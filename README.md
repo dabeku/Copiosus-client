@@ -15,7 +15,7 @@ npm install node-gyp -g
 * Rebuild for specific electron version: --target = electron version
 node-gyp rebuild
 
-* If there is a "... was built for newer macOS version (12.0) than being linked (11.0)" then do
+* **Mac only:** If there is a warning *"... was built for newer macOS version (12.0) than being linked (11.0)"* then do
 export LDFLAGS="-mmacosx-version-min=12.0"
 
 * This will rebuild the video.node module for the electron version
