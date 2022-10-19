@@ -1,5 +1,3 @@
-import * as Constant from "../../common/constant"
-
 import {
     ACTION_VIDEO_ADD_CAMERA,
     ACTION_VIDEO_UPDATE_CAMERA_STATE,
@@ -12,9 +10,6 @@ import {
 } from '../actionTypes'
 
 const initialState = {
-    user: {
-        isCameraAvailable: false
-    },
     camerasState: {
         cameras: [],
         files: [],

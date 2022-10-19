@@ -28,6 +28,9 @@
     --btn-icon-hover: #4A4A4A;
 }
 
+#notification { transition: opacity 1s; }
+#notification.hidden { opacity: 0; }
+
 body {
     color: var(--text-color-light);
     font-size: 13px;
@@ -397,8 +400,6 @@ body {
     top: 0px;
     bottom: 0px;
     z-index: 10500;
-
-    background-color: #aaaaaaaa
 }
 
 .notification-sca {

@@ -1,5 +1,3 @@
-import * as Constant from "../common/constant"
-
 export const getCamerasState = store => store.global.camerasState;
 export const getNetworkState = store => store.global.networkState;
 

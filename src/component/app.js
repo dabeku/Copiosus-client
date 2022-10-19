@@ -152,8 +152,7 @@ class App extends React.Component {
         return (
             <div>
                 {action}
-                <div id="notification" className="notification">
-                    
+                <div id="notification" className="notification hidden">
                 </div>
             </div>
         );

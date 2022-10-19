@@ -152,9 +152,17 @@ export default class Utility {
     
     showMessage = function(message, isSuccess) {
     
-        var notificationId = "#notification";
+        var notificationId = "notification";
     
-        $(notificationId).fadeOut(ANIMATION_DURATION, function() {
+        let notification = document.getElementById(notificationId);
+        notification.innerHTML = message;
+        notification.classList.toggle("hidden");
+
+        setTimeout(() => {
+            notification.classList.toggle("hidden");
+        }, 2500);
+
+        /*$(notificationId).fadeOut(ANIMATION_DURATION, function() {
             if (isSuccess) {
                 $(notificationId).removeClass("error");
                 $(notificationId).addClass("success");
@@ -164,7 +172,7 @@ export default class Utility {
             }
             $(notificationId).html(message);
         });
-        $(notificationId).fadeIn(ANIMATION_DURATION).delay(3000).fadeOut(ANIMATION_DURATION);
+        $(notificationId).fadeIn(ANIMATION_DURATION).delay(3000).fadeOut(ANIMATION_DURATION);*/
     }
     
     /*

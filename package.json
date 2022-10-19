@@ -21,7 +21,7 @@
     "release": "bash scripts/sign_store.sh"
   },
   "devDependencies": {
-    "electron": "21.1.0",
+    "electron": "20.3.2",
     "electron-rebuild": "3.2.9",
     "react-scripts": "5.0.1",
     "node-abi": "3.26.0"
