@@ -15,7 +15,7 @@ npm install node-gyp -g
 ```
 node-gyp rebuild
 ```
-# In some cases do: node-gyp rebuild --target=17.1.1 --dist-url=https://electronjs.org/headers
+<!-- In some cases do: node-gyp rebuild --target=17.1.1 --dist-url=https://electronjs.org/headers -->
 
 * **Mac only:** If there is a warning *"... was built for newer macOS version (12.0) than being linked (11.0)"* then do
 ```
