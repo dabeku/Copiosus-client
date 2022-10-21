@@ -8,7 +8,7 @@ import {
     addCamera,
     updateCameraState,
     clearCameras,
-    setNetwork } from '../../redux/actions'
+    setNetwork } from '../../redux/reducers/global'
 
 import CameraItem from "./camera-item.component"
 import Utility from "../../common/utility";
@@ -36,7 +36,10 @@ class CameraList extends React.Component {
         var ipInformation = this.utility.getIpInformation();
         var ipRange = "";
         if (ipInformation.length > 0) {
-            this.props.setNetwork(ipInformation[0].ip, ipInformation[0].broadcast);
+            this.props.setNetwork({
+                ip: ipInformation[0].ip,
+                broadcast: ipInformation[0].broadcast
+            });
             var ipRangeParts = ipInformation[0].ip.split(".");
             // We assume 192.168.0.1 (4 parts)
             if (ipRangeParts.length === 4) {
@@ -149,7 +152,10 @@ class CameraList extends React.Component {
 
     handleSelectNetwork = (e, ipInformation) => {
         e.preventDefault();
-        this.props.setNetwork(ipInformation.ip, ipInformation.broadcast);
+        this.props.setNetwork({
+            ip: ipInformation.ip,
+            broadcast: ipInformation.broadcast
+        });
     };
 
     updateIpRange = (e) => {
@@ -242,6 +248,7 @@ class CameraList extends React.Component {
                 {showSpinner}
                 <div id="lvCameras" className="list-group">
                     {cameras.map(camera => {
+                        console.log("Camera", camera);
                         return (
                             <div key={camera.deviceId}>
                                 <CameraItem camera={camera} selectionUpdated={this.selectionUpdated}/>

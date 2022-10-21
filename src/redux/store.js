@@ -1,11 +1,10 @@
-import { createStore, applyMiddleware } from "redux";
-import rootReducer from "./reducers";
-import logger from 'redux-logger'
+import { configureStore } from '@reduxjs/toolkit'
+import mainReducer from "./reducers/global";
 
-// TODO: Deprecated
-const store = createStore(
-    rootReducer,
-    applyMiddleware(logger)
-);
+const store = configureStore({
+    reducer: {
+        main: mainReducer,
+    }
+});
 
 export default store;

@@ -4,11 +4,6 @@ import { connect } from 'react-redux'
 
 import { getCamerasState } from '../../redux/selectors'
 
-import {
-    deleteCameraFile,
-    clearCameraFiles,
-    setCameraFiles } from '../../redux/actions'
-
 import * as Constant from "../../common/constant"
 
 import CameraService from "../../service/camera.service"
@@ -17,6 +12,12 @@ import { l10n } from "../../common/l10n"
 
 import "./file-list-dialog.component.css";
 import Utility from "../../common/utility";
+
+import {
+    deleteCameraFile,
+    clearCameraFiles,
+    setCameraFiles
+} from '../../redux/reducers/global'
 
 class FileList extends React.Component {
 
@@ -66,7 +67,7 @@ class FileList extends React.Component {
                             return a.fileName.localeCompare(b.fileName);
                         }
                     );
-                    this.props.setCameraFiles(files, true);
+                    this.props.setCameraFiles({files: files, isComplete: true});
                 }
             });
         });

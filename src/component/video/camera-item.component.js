@@ -3,9 +3,6 @@ import { connect } from 'react-redux'
 
 import { getNetworkState } from '../../redux/selectors'
 
-import {
-    updateCameraTemp } from '../../redux/actions'
-
 import webglUtils from '../../raw/webgl-utils'
 import m4 from '../../raw/m4'
 
@@ -13,6 +10,10 @@ import CameraService from "../../service/camera.service"
 import FileList from "./file-list-dialog.component"
 import Log from "../../common/log";
 import Utility from "../../common/utility";
+
+import {
+    updateCameraTemp
+} from '../../redux/reducers/global'
 
 import "./camera-item.component.css";
 
