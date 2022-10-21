@@ -1,7 +1,4 @@
 {
-    "variables" : {
-        "include_path" : "/Users/gwen/Documents/lib/FFmpeg"
-    },
     "targets": [{
             "target_name": "video",
             "sources": [
@@ -14,10 +11,7 @@
                 "native/cop_list.cc",
             ],
             "include_dirs": [
-                "<!(node -e \"require('nan')\")",
-                "<(include_path)",
-                "C:/Dev/lib/ffmpeg-20191214-24424a6-win64-dev/include",
-                "C:/Dev/lib/SDL2-2.0.10/include",
+                "<!(node -e \"require('nan')\")"
             ],
 
             "conditions":[
