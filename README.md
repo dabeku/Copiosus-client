@@ -6,7 +6,8 @@ npm init
 
 ### Development
 * ```npm run react-start```
-* ```npm run electron-dev-mac``` (in second terminal)
+* Mac: ```npm run electron-dev-mac``` (in second terminal)
+* Windows: ```npm run react-build-win``` (in second terminal)
 
 ## Native (node module)
 ```
