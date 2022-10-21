@@ -28,9 +28,6 @@
     --btn-icon-hover: #4A4A4A;
 }
 
-#notification { transition: opacity 1s; }
-#notification.hidden { opacity: 0; }
-
 body {
     color: var(--text-color-light);
     font-size: 13px;
@@ -384,42 +381,19 @@ body {
     text-align: center;
 }
 
+.notification { transition: opacity 1s; }
+.notification.hidden { opacity: 0; }
+
 .notification {
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
-    top: 36px;
+    top: 4px;
     max-width: 400px;
     z-index: 10600;
-}
-
-.notification-sca-container {
-    position: fixed;
-    left: 0px;
-    right: 0px;
-    top: 0px;
-    bottom: 0px;
-    z-index: 10500;
-}
-
-.notification-sca {
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 136px;
-    max-width: 400px;
-    z-index: 10600;
-
-    background-color: var(--bg-color-light);
-    border: 1px solid transparent;
-    border-color: var(--separator-normal);
-    border-radius: 2px;
     padding: 8px;
-    text-align: center;
-}
-
-.notification-sca-code {
-    font-weight: bold;
+    border-radius: 2px;
+    background-color: var(--success);
 }
 
 .show {
@@ -428,68 +402,6 @@ body {
 
 .hide {
     display: none;
-}
-
-/* Message type: Normal, paranoid */
-
-.cntSend {
-    position: absolute;
-    left: 0px;
-    right: 4px;
-    bottom: 4px;
-}
-
-.cntMessageType {
-    position: absolute;
-    right: 0px;
-    bottom: 37px;
-    left: 4px;
-    height: 29px;
-}
-
-.lblMessageType {
-    width: 80px;
-    justify-content: left !important;
-    padding-top: 4px;
-}
-
-.radMessageType {
-    margin-right: 5px;
-}
-
-.cntInstanceId {
-    position: absolute;
-    right: 4px;
-    top: 0px;
-    left: 200px;
-    display: none;
-}
-
-.selInstances {
-    width: 100% !important;
-}
-
-.messageStateDownloaded {
-    font-weight: bold;
-    color: green;
-}
-
-.cntLoadMore {
-    text-align: center;
-    padding-bottom: 4px;
-}
-
-.cntUnreadMessagesCount {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-left: 4px;
-    padding-right: 4px;
-    font-weight: bold;
-    color: var(--success-on-light-bg);
-    background: var(--bg-selected-light);
-    border-radius: 2px;
 }
 
 /* Structure */
@@ -511,15 +423,6 @@ body {
     padding-left: 4px;
     padding-right: 4px;
     padding-bottom: 4px;
-}
-
-.cntUsers {
-    padding-top: 4px;
-}
-
-.txtUserSettings {
-    font-size: 11px;
-    padding-right: 8px;
 }
 
 .right {
@@ -551,18 +454,6 @@ body {
     padding-right: 4px;
 }
 
-.panel-settings {
-    position: absolute;
-    top: -290px; /* Height + navbar height = 50px */
-    right: 0px;
-    width: 350px;
-    z-index: 9000;
-    padding: 4px;
-    background: #186558;
-    color: #FFFFFF;
-    box-shadow: 0 1px 4px 0 var(--shadow-color-dark);
-}
-
 .video-settings {
     position: absolute;
     right: 0px;
@@ -585,12 +476,6 @@ body {
     transform: rotate(180deg);
     transition: transform 0.25s linear;
 }
-
-/*@media (max-width: 575px) {
-    .form-control {
-        margin-bottom: 10px;
-    }
-}*/
 
 .canvasMain { 
     position: relative;
@@ -646,15 +531,4 @@ body {
     position: absolute;
     right: 44px;
     font-size: 16px;
-}
-
-.link {
-    cursor: pointer;
-    color: lightblue;
-    text-decoration: none;
-}
-.link:hover {
-    cursor: pointer;
-    color: white;
-    text-decoration: none;
 }

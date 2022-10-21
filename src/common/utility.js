@@ -161,18 +161,6 @@ export default class Utility {
         setTimeout(() => {
             notification.classList.toggle("hidden");
         }, 2500);
-
-        /*$(notificationId).fadeOut(ANIMATION_DURATION, function() {
-            if (isSuccess) {
-                $(notificationId).removeClass("error");
-                $(notificationId).addClass("success");
-            } else {
-                $(notificationId).removeClass("success");
-                $(notificationId).addClass("error");
-            }
-            $(notificationId).html(message);
-        });
-        $(notificationId).fadeIn(ANIMATION_DURATION).delay(3000).fadeOut(ANIMATION_DURATION);*/
     }
     
     /*
