@@ -150,7 +150,7 @@ class FileList extends React.Component {
                             }
 
                             return <div key={file.fileName} className='list-item-dialog flex-container flex-center' style={{background: 'linear-gradient(90deg, ' + color + ' '+percent+'%, white '+percent+'%'}}>
-                                <i className='btn fa fa-trash block-list-button' onClick={(e) => {this.handleDelete(e, file.fileName); }}></i>
+                                <i className='btn fa fa-trash listItemActionOne' onClick={(e) => {this.handleDelete(e, file.fileName); }}></i>
                                 <i className='btn fa fa-file-download listItemActionTwo' onClick={(e) => {this.handleDownload(e, file.fileName); }}></i>
                                 <div className='list-item-text file-list-item'>{file.fileName} ({file.fileSizeKb}Kb)</div>
                             </div>

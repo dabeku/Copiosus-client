@@ -23,9 +23,6 @@
     --separator-light: #EBEBEB;
     /* Input fields border */
     --separator-normal: #A4A4A4;
-
-    /* Color when mouse moves over btn-icon */
-    --btn-icon-hover: #4A4A4A;
 }
 
 body {
@@ -57,7 +54,6 @@ body {
 
 .btn:hover {
     background-color: #388578;
-    /*background: #3bb364;*/
     color: #FFFFFF;
     border: 1px solid #388578;
     border-radius: 2px;
@@ -149,40 +145,8 @@ body {
     margin-top: 4px;
 }
 
-.marge-top-medium {
-    margin-top: 8px;
-}
-
-.marge-top-large {
-    margin-top: 16px;
-}
-
-.marge-top-max {
-    margin-top: 32px;
-}
-
 .marge-right-small {
     margin-right: 4px;
-}
-
-.marge-right-medium {
-    margin-right: 8px;
-}
-
-.marge-right-large {
-    margin-right: 16px;
-}
-
-.marge-bottom-small {
-    margin-bottom: 4px;
-}
-
-.pad-right {
-    padding-right: 4px;
-}
-
-.pad-right-medium {
-    padding-right: 8px;
 }
 
 .pad-top-small {
@@ -197,38 +161,6 @@ body {
     margin-bottom: 4px;
 }
 
-.btn-file {
-    position: relative;
-    overflow: hidden;
-}
-
-.btn-file input[type=file] {
-    position: absolute;
-    top: 0;
-    right: 0;
-    min-width: 100%;
-    min-height: 100%;
-    font-size: 999px;
-    text-align: right;
-    filter: alpha(opacity = 0);
-    opacity: 0;
-    outline: none;
-    background: white;
-    cursor: inherit;
-    display: block;
-}
-
-.btn-icon {
-    font-size: 20px;
-}
-.btn-icon:hover {
-    color: var(--btn-icon-hover);
-}
-
-.item-hide {
-    display: none;
-}
-
 .flex-container {
     display: flex;
 }
@@ -241,117 +173,15 @@ body {
     justify-content: space-between;
 }
 
-.flex-column {
-    flex-direction: column;
-}
-
 .flex-center {
     align-items: center;
-}
-
-.flex-child {
-    align-self: center;
 }
 
 .flex-grow {
     flex: 1 0 auto;
 }
 
-.flex-stay {
-    flex: 0 0 auto;
-}
-
-.flex-shrink {
-    flex:0 1 auto;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.float-right {
-    float: right;
-}
-
-/* Styles from teamplates.js */
-
-.state-inactive {
-    font-style: italic;
-}
-
-.tvPartner {
-    color: #888888;
-}
-.tvMessage {
-    padding-top: 4px;
-    padding-bottom: 4px;
-    word-break: break-word;
-}
-.tvTimestamp {
-    color: #888888;
-    text-align: right;
-}
-.imgState {
-    padding-left: 10px;
-    font-size: 16px !important; /* Important needed to override fa */
-}
-.imgPreview {
-    max-height: 250px;
-    max-width: 100%;
-    display: block;
-    margin: 0 auto;
-    border-radius: 2px;
-}
-.cntMessageIncoming {
-    margin-left: 16px;
-}
-.cntMessageOutgoing {
-    margin-right: 16px;    
-}
-.type-normal {
-    background-color: white;
-}
-.type-paranoid {
-    background-color: var(--paranoid);
-}
-.type-secure {
-    background-color: var(--success);
-}
-.type-secure-outgoing {
-    background-color: var(--success-light);
-}
-
-.cntDownload {
-    text-align: center;
-}
-.imgDownload {
-    font-size: 20px;
-    padding-top: 4px;
-}
-
 /* General */
-
-.full-height {
-    height: 100%;
-}
-
-.inline {
-    display: inline;
-}
-
-.inline-block {
-    display: inline-block;
-}
-
-.status-online {
-    color: var(--success);
-    font-weight: bold;
-}
-
-.status-offline {
-    color: #ffa500;
-    font-weight: bold;
-}
 
 .error {
     background-color: #ffa500;
@@ -394,14 +224,6 @@ body {
     padding: 8px;
     border-radius: 2px;
     background-color: var(--success);
-}
-
-.show {
-    display: block;
-}
-
-.hide {
-    display: none;
 }
 
 /* Structure */
