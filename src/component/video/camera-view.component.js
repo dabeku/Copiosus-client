@@ -30,10 +30,21 @@ class CameraView extends React.Component {
         this.initVideo();
 
         this.lastInterval = setInterval(() => {
-            this.setState({
-                deviceFpsMapping: this.deviceFpsMapping
-            });
+            var fps = "FPS: ";
+
             for (var key in this.deviceFpsMapping) {
+                key = "" + key;
+                if (this.deviceFpsMapping.hasOwnProperty(key)) {
+                    if (!this.deviceFpsMapping[key]) {
+                        fps = fps + "0 ";
+                    } else {
+                        fps = fps + this.deviceFpsMapping[key] + " ";
+                    }
+                }
+            }
+            
+            for (var key in this.deviceFpsMapping) {
+                key = "" + key;
                 if (this.deviceFpsMapping.hasOwnProperty(key)) {
                     var canvasPlayer = document.getElementById("canvasPlayer_" + key);
                     if (this.deviceFpsMapping[key] === 0) {
@@ -51,9 +62,17 @@ class CameraView extends React.Component {
                             }
                         }
                     }
+
+                    if (!this.deviceFpsMapping[key]) {
+                        fps = fps + "0 ";
+                    } else {
+                        fps = fps + this.deviceFpsMapping[key] + " ";
+                    }
                     this.deviceFpsMapping[key] = 0;
                 }
             }
+            let fpsField = document.getElementById("field-fps");
+            fpsField.innerHTML = fps;
         }, 1000);
     }
 
@@ -66,6 +85,8 @@ class CameraView extends React.Component {
     initVideo = () => {
         this.log.info("[initVideo].");
         window.video.initialize((deviceId, array) => {
+
+            deviceId = "" + deviceId;
 
             var canvasPlayer = document.getElementById("canvasPlayer_" + deviceId);
             if (canvasPlayer == null) {
@@ -120,9 +141,10 @@ class CameraView extends React.Component {
             classRotated = "rotate180";
         }
 
-        var fps = "FPS: ";
+        /*var fps = "FPS: ";
         var count = 0;
         for (var key in this.deviceFpsMapping) {
+            key = "" + key;
             if (this.deviceFpsMapping.hasOwnProperty(key)) {
                 if (!this.deviceFpsMapping[key]) {
                     fps = fps + "0 ";
@@ -134,7 +156,7 @@ class CameraView extends React.Component {
         }
         if (count === 0) {
             fps = fps + "0";
-        }
+        }*/
 
         const howto = (
             <div id="right" className="right-video-howto">
@@ -159,7 +181,7 @@ class CameraView extends React.Component {
                 <div id="bottom" className="bottom">
                     <div className="bottomInner flex-container flex-space-between flex-center">
                         <button className="btn btn-text marge-bottom" onClick={(e) => {this.handleRotateView(e); }}>Rotate</button>
-                        {fps}
+                        <div id="field-fps"></div>
                     </div>
                 </div>
             </div>

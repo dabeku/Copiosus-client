@@ -306,6 +306,7 @@ body {
 }
 
 .videoMain {
+    overflow: hidden;
     position: absolute;
     left: 0px;
     right: 0px;
@@ -320,9 +321,9 @@ body {
 .right-video {
     position: absolute;
     overflow: auto;
-    right: 0px;
+    right: 0;
     left: 296px;
-    top: 50px;
+    top: 0;
     bottom: 40px;
 }
 
@@ -353,4 +354,8 @@ body {
     position: absolute;
     right: 44px;
     font-size: 16px;
+}
+
+.list-item-camera {
+    width: 170px;
 }

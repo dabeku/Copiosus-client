@@ -336,7 +336,7 @@ class CameraItem extends React.Component {
                     <div>{tempStr}</div>
                 </div>
                 <div className='flex-container flex-space-between flex-center'>
-                    <div className="flex-grow">
+                    <div className="flex-grow list-item-camera">
                         {camera.hostname} {capabilities}<br/>
                         <div className='cntVideoState'>{stateStr}</div>
                         <ConnectedCameras splitted={splitted}/>
