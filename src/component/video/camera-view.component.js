@@ -30,9 +30,8 @@ class CameraView extends React.Component {
         this.initVideo();
 
         this.lastInterval = setInterval(() => {
-            var fps = "FPS: ";
 
-            for (var key in this.deviceFpsMapping) {
+            /*for (var key in this.deviceFpsMapping) {
                 key = "" + key;
                 if (this.deviceFpsMapping.hasOwnProperty(key)) {
                     if (!this.deviceFpsMapping[key]) {
@@ -41,7 +40,7 @@ class CameraView extends React.Component {
                         fps = fps + this.deviceFpsMapping[key] + " ";
                     }
                 }
-            }
+            }*/
             
             for (var key in this.deviceFpsMapping) {
                 key = "" + key;
@@ -64,15 +63,16 @@ class CameraView extends React.Component {
                     }
 
                     if (!this.deviceFpsMapping[key]) {
-                        fps = fps + "0 ";
+                        let fpsField = document.getElementById("field-fps_" + key);
+                        fpsField.innerHTML = "0";
                     } else {
-                        fps = fps + this.deviceFpsMapping[key] + " ";
+                        let fpsField = document.getElementById("field-fps_" + key);
+                        fpsField.innerHTML = "" + this.deviceFpsMapping[key];
                     }
                     this.deviceFpsMapping[key] = 0;
                 }
             }
-            let fpsField = document.getElementById("field-fps");
-            fpsField.innerHTML = fps;
+            
         }, 1000);
     }
 
@@ -181,7 +181,6 @@ class CameraView extends React.Component {
                 <div id="bottom" className="bottom">
                     <div className="bottomInner flex-container flex-space-between flex-center">
                         <button className="btn btn-text marge-bottom" onClick={(e) => {this.handleRotateView(e); }}>Rotate</button>
-                        <div id="field-fps"></div>
                     </div>
                 </div>
             </div>

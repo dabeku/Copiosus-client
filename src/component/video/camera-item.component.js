@@ -120,6 +120,13 @@ class CameraItem extends React.Component {
             videoMain.appendChild(canvasElement);
             // Add canvas to UI
             this.addElement(canvasElement);
+
+            let fpsElement = document.createElement("div");
+            fpsElement.id = "field-fps_" + deviceId;
+            fpsElement.className = "field-fps";
+            fpsElement.innerHTML = "0";
+            videoMain.appendChild(fpsElement);
+
         } else {
             this.log.error("[addPlayer] Main video element missing.");
         }

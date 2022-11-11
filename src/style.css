@@ -314,6 +314,16 @@ body {
     top: 0px;
 }
 
+.field-fps {
+    position: absolute;
+    background: var(--success);
+    color: black;
+    padding: 8px;
+    border-radius: 2px;
+    top: 16px;
+    left: 16px;
+}
+
 .rotate180 {
     transform: rotate(180deg);
 }
