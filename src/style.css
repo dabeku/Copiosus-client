@@ -235,9 +235,8 @@ body {
     width: 280px;
     top: 0px;
     bottom: 0px;
-    padding-top: 8px;
+    padding-top: 4px;
     background: var(--bg-color-light);
-    border-right: 1px solid var(--separator-light);
     box-shadow: 0 0 4px 0 var(--shadow-color-light);
 }
 

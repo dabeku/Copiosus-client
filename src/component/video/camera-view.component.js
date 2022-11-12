@@ -180,7 +180,7 @@ class CameraView extends React.Component {
                     {cameras.map((camera, index) => {
                         return (
                             <div key={"field-fps_" + camera.deviceId} id={"field-fps_" + camera.deviceId} style={{top: 16 + (index * 16) + "px"}} className="field-fps">
-                                0
+                                IDLE
                             </div>
                         );
                     })}
