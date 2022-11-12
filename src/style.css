@@ -315,13 +315,16 @@ body {
 }
 
 .field-fps {
+    min-width: 48px;
+    text-align: center;
     position: absolute;
     background: var(--success);
     color: black;
     padding: 8px;
     border-radius: 2px;
-    top: 16px;
     left: 16px;
+    opacity: 0.8;
+    z-index: 10;
 }
 
 .rotate180 {

@@ -106,13 +106,21 @@ class CameraItem extends React.Component {
         var videoMain = document.getElementById("videoMain");
 
         if (videoMain) {
+            let canvasMainItems = [];
+            for (var i = 0; i < videoMain.children.length; i++) {
+                var child = videoMain.children[i];
+                if (child.className === "canvasMain") {
+                    canvasMainItems.push(child);
+                }
+            }
+
             // Recalculate sizes
             var newWidthInPercent = 100;
-            var childCount = videoMain.children.length + 1;
+            var childCount = canvasMainItems.length + 1;
             newWidthInPercent = newWidthInPercent / childCount;
 
             for (var i = 0; i < childCount - 1; i++) {
-                var child = videoMain.children[i];
+                var child = canvasMainItems[i];
                 child.style.width = newWidthInPercent + "%";
             }
 
@@ -121,11 +129,7 @@ class CameraItem extends React.Component {
             // Add canvas to UI
             this.addElement(canvasElement);
 
-            let fpsElement = document.createElement("div");
-            fpsElement.id = "field-fps_" + deviceId;
-            fpsElement.className = "field-fps";
-            fpsElement.innerHTML = "0";
-            videoMain.appendChild(fpsElement);
+            
 
         } else {
             this.log.error("[addPlayer] Main video element missing.");

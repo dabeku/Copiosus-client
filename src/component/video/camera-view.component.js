@@ -176,6 +176,15 @@ class CameraView extends React.Component {
             <div>
                 <div id="right" className="right-video">
                     <div id="videoMain" className={"videoMain " + classRotated}>
+
+                    {cameras.map((camera, index) => {
+                        return (
+                            <div key={"field-fps_" + camera.deviceId} id={"field-fps_" + camera.deviceId} style={{top: 16 + (index * 16) + "px"}} className="field-fps">
+                                0
+                            </div>
+                        );
+                    })}
+
                     </div>
                 </div>
                 <div id="bottom" className="bottom">
