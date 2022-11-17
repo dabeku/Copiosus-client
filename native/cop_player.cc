@@ -176,9 +176,9 @@ int frame_to_jpeg(VideoState *is, AVFrame *frame) {
     // Create copy of content
     u_int8_t* s = (u_int8_t*)malloc(3 * is->width * is->height);
     memcpy(s, pFrameRGB->data[0], 3 * is->width * is->height);
-    update(strdup(is->deviceId), s, is->width, is->height);
+    update_frame(strdup(is->deviceId), s, is->width, is->height);
 
-    // Attention: free(s) is called in update() function since it's async
+    // Attention: free(s) is called in update_frame() function since it's async
 
     av_frame_free(&pFrameRGB);
     av_free(bufferRGB);
@@ -220,6 +220,7 @@ static int video_thread(void *arg) {
             frame_to_jpeg(is, pFrame);
         } else {
             cop_debug("[video_thread] Frame is NOT finished.");
+            update_status(strdup(is->deviceId), strdup("WAIT_FOR_FRAME"));
         }
         
         av_packet_unref(packet);
@@ -697,6 +698,8 @@ int player_initialize(char* deviceId, char* listen_ip, int32_t listen_port_cam, 
     VideoState* is = (VideoState*)av_mallocz(sizeof(VideoState));
 
     av_strlcpy(is->deviceId, deviceId, sizeof(is->deviceId));
+
+    update_status(strdup(is->deviceId), strdup("PLAYER_INITIALIZE"));
 
     if (USE_PROXY) {
         if (listen_port_cam > 0) {

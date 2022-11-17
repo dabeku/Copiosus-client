@@ -17,24 +17,37 @@ extern "C" {
 
 }
 
-SDL_mutex* mutex = SDL_CreateMutex();
 
+/*
+ * Image
+ */
+
+SDL_mutex* update_frame_mutex = SDL_CreateMutex();
 // The javascript callback to be called when a new image is available
-Nan::Callback callback;
-
+Nan::Callback frame_callback;
 // The last data sent to callback
-int isProcessing = 0;
-u_int8_t *lastData = NULL;
-char *lastDeviceId = NULL;
+int is_update_frame_processing = 0;
+u_int8_t *last_frame_data = NULL;
+char *last_frame_device_id = NULL;
 // Will be overriden by player_initialize()
-int lastWidth = 640;
-int lastHeight = 480;
-
+int last_width = 640;
+int last_height = 480;
 /*
  * Callback from other thread
  */
-uv_async_t async; // Keep this instance around for as long as we might need to do the periodic callback
-uv_loop_t* loop = uv_default_loop();
+uv_async_t update_frame_async; // Keep this instance around for as long as we might need to do the periodic callback
+uv_loop_t* update_frame_loop = uv_default_loop();
+
+/*
+ * Status
+ */
+SDL_mutex* update_status_mutex = SDL_CreateMutex();
+Nan::Callback status_callback;
+int is_update_status_processing = 0;
+char *last_status_deviceId = NULL;
+char *last_status = 0;
+uv_async_t update_status_async;
+uv_loop_t* update_status_loop = uv_default_loop();
 
 void wrap_pointer_cb(char *data, void *hint) {
   //fprintf(stderr, "wrap_pointer_cb\n");
@@ -49,41 +62,77 @@ inline v8::Local<v8::Value> WrapPointer(char *ptr) {
   return WrapPointer(ptr, 0);
 }
 
-void asyncmsg(uv_async_t* handle) {
+void frameAsyncmsg(uv_async_t* handle) {
     Nan::HandleScope scope;
-    Nan::AsyncResource resource("copiosus:video:callback");
-    SDL_LockMutex(mutex);
-    v8::Local<v8::Value> ptr = WrapPointer((char *)lastData, 3 * lastWidth * lastHeight);
-    v8::Local<v8::Value> deviceId = WrapPointer(lastDeviceId, strlen(lastDeviceId));
+    Nan::AsyncResource resource("copiosus:video:frame_callback");
+    SDL_LockMutex(update_frame_mutex);
+    v8::Local<v8::Value> ptr = WrapPointer((char *)last_frame_data, 3 * last_width * last_height);
+    v8::Local<v8::Value> deviceId = WrapPointer(last_frame_device_id, strlen(last_frame_device_id));
     v8::Local<v8::Value> argv[] = { deviceId, ptr };
-    callback.Call(2, argv, &resource);
-    free(lastDeviceId);
-    free(lastData);
-    isProcessing = 0;
-    SDL_UnlockMutex(mutex);
+    frame_callback.Call(2, argv, &resource);
+    free(last_frame_device_id);
+    free(last_frame_data);
+    is_update_frame_processing = 0;
+    SDL_UnlockMutex(update_frame_mutex);
 }
 
-void update(char* deviceId, u_int8_t *data, int width, int height) {
-    SDL_LockMutex(mutex);
-    if (isProcessing == 1) {
+void statusAsyncmsg(uv_async_t* handle) {
+    Nan::HandleScope scope;
+    Nan::AsyncResource resource("copiosus:video:status_callback");
+    SDL_LockMutex(update_status_mutex);
+    v8::Local<v8::Value> deviceId = WrapPointer(last_status_deviceId, strlen(last_status_deviceId));
+    v8::Local<v8::Value> status = WrapPointer(last_status, strlen(last_status));
+    v8::Local<v8::Value> argv[] = { deviceId, status };
+    status_callback.Call(2, argv, &resource);
+    free(last_frame_device_id);
+    is_update_status_processing = 0;
+    SDL_UnlockMutex(update_status_mutex);
+}
+
+void update_frame(char* deviceId, u_int8_t *data, int width, int height) {
+    SDL_LockMutex(update_frame_mutex);
+    if (is_update_frame_processing == 1) {
         free(deviceId);
         free(data);
-        SDL_UnlockMutex(mutex);
+        SDL_UnlockMutex(update_frame_mutex);
         return;
     }
-    isProcessing = 1;
-    lastDeviceId = deviceId;
-    lastData = data;
-    lastWidth = width;
-    lastHeight = height;
-    SDL_UnlockMutex(mutex);
-    uv_async_send(&async);
+    is_update_frame_processing = 1;
+    last_frame_device_id = deviceId;
+    last_frame_data = data;
+    last_width = width;
+    last_height = height;
+    SDL_UnlockMutex(update_frame_mutex);
+    uv_async_send(&update_frame_async);
+}
+
+/*
+ * 1 = PLAYER_INITIALIZE
+ * 2 = WAIT_FOR_FRAME
+ */
+void update_status(char* deviceId, char* status) {
+    SDL_LockMutex(update_status_mutex);
+    if (is_update_status_processing == 1) {
+        free(deviceId);
+        SDL_UnlockMutex(update_status_mutex);
+        return;
+    }
+    is_update_status_processing = 1;
+    last_status_deviceId = deviceId;
+    last_status = status;
+    SDL_UnlockMutex(update_status_mutex);
+    uv_async_send(&update_status_async);
 }
 
 NAN_METHOD(initialize) {
-    callback.Reset(info[0].As<v8::Function>());
-    uv_async_init(loop, &async, asyncmsg);
+    frame_callback.Reset(info[0].As<v8::Function>());
+    uv_async_init(update_frame_loop, &update_frame_async, frameAsyncmsg);
     initialize();
+}
+
+NAN_METHOD(initialize_update_status) {
+    status_callback.Reset(info[0].As<v8::Function>());
+    uv_async_init(update_status_loop, &update_status_async, statusAsyncmsg);
 }
 
 NAN_METHOD(reset) {

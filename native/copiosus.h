@@ -7,6 +7,7 @@
 extern int quit;
 
 int initialize();
+int initializeUpdateStatus();
 int reset();
 void schedule_refresh(VideoState *is, int delay);
 

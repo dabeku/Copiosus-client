@@ -30,17 +30,6 @@ class CameraView extends React.Component {
         this.initVideo();
 
         this.lastInterval = setInterval(() => {
-
-            /*for (var key in this.deviceFpsMapping) {
-                key = "" + key;
-                if (this.deviceFpsMapping.hasOwnProperty(key)) {
-                    if (!this.deviceFpsMapping[key]) {
-                        fps = fps + "0 ";
-                    } else {
-                        fps = fps + this.deviceFpsMapping[key] + " ";
-                    }
-                }
-            }*/
             
             for (var key in this.deviceFpsMapping) {
                 key = "" + key;
@@ -83,7 +72,13 @@ class CameraView extends React.Component {
     }
 
     initVideo = () => {
-        this.log.info("[initVideo].");
+
+        window.video.initialize_update_status((deviceId, status) => {
+            console.log("Status:", ""+deviceId, ""+status);
+            let fpsField = document.getElementById("field-fps_" + deviceId);
+            fpsField.innerHTML = "" + status;
+        });
+
         window.video.initialize((deviceId, array) => {
 
             deviceId = "" + deviceId;

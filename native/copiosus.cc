@@ -133,6 +133,12 @@ int initialize() {
     return STATUS_CODE_OK;
 }
 
+int initializeUpdateStatus() {
+    cop_debug("[initializeUpdateStatus] Done.");
+
+    return STATUS_CODE_OK;
+}
+
 int reset() {
     cop_debug("[reset].");
 

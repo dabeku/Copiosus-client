@@ -11,9 +11,11 @@
     typedef uint32_t u_int32_t;
 #endif
 
-void update(char* deviceid, u_int8_t *data, int width, int height);
+void update_frame(char* deviceid, u_int8_t *data, int width, int height);
+void update_status(char* deviceid, char *status);
 
 NAN_METHOD(initialize);
+NAN_METHOD(initialize_update_status);
 NAN_METHOD(reset);
 NAN_METHOD(player_initialize);
 NAN_METHOD(player_stop);
